@@ -13,7 +13,6 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 14
-      - run: echo -e @messiasnycolas:registry=https://npm.pkg.github.com/ \n //npm.pkg.github.com/:_authToken="${{secrets.TOKEN_GITHUB}}" > .npmrc
       - run: npm install
       - run: node index.js
         env:
