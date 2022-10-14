@@ -1,0 +1,20 @@
+name: NPM Package Consumer
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  test-package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - run: echo -e @messiasnycolas:registry=https://npm.pkg.github.com/\n//npm.pkg.github.com/:_authToken=${{secrets.TOKEN_GITHUB}} > .npmrc
+      - run: npm install
+      - run: node index.js
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.TOKEN_GITHUB}}
