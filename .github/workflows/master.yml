@@ -14,6 +14,8 @@ jobs:
         with:
           node-version: 14
       - run: npm install
+      - run: echo @messiasnycolas:registry=https://npm.pkg.github.com/ > .npmrc
+      - run: echo //npm.pkg.github.com/:_authToken=${{secrets.TOKEN_GITHUB}} >> .npmrc
       - run: node index.js
         env:
           NODE_AUTH_TOKEN: ${{secrets.TOKEN_GITHUB}}
