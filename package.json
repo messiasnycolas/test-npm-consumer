@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@messiasnycolas/test-npm": "^1.0.0"
+    "@messiasnycolas/test-npm": "latest"
   }
 }
